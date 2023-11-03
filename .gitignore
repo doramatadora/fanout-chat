@@ -1,0 +1,6 @@
+.DS_Store
+.dora
+node_modules
+.data
+.env
+.env.production

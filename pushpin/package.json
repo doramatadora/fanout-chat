@@ -1,0 +1,11 @@
+{
+  "name": "pushpin-local",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "pull": "docker pull fanout/pushpin:1.35.0-1",
+    "start": "docker run --platform linux/amd64 -p 7999:7999 -p 5560-5563:5560-5563 -v $(pwd)/config:/etc/pushpin/ --rm --name pushpin fanout/pushpin:1.35.0-1"
+  }
+}
