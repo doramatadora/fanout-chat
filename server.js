@@ -135,10 +135,10 @@ app.post('/room/:slug/messages', async (req, res) => {
 })
 
 app.delete('/room/:slug/messages/:id', async (req, res) => {
-  const { id } = req.params
+  const { id, slug } = req.params
   const sender = await db.getMsgSender(id)
   if (sender !== res.locals.currentUser) return res(403).end('Unauthorized')
-  await db.deleteMessage(id)
+  await db.deleteMessage({ id, slug })
   res.status(200).end()
 })
 

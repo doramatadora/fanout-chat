@@ -139,17 +139,11 @@ export const sendMessage = async ({ user, message, slug }) => {
   }
 }
 
-export const deleteMessage = async id => {
+export const deleteMessage = async ({ id, slug }) => {
   try {
-    const { room_id: slug } = await db.get(
-      'SELECT room_id FROM messages WHERE id=?',
-      id
-    )
     await db.run('DELETE FROM messages WHERE id=?', id)
-
-    const eventData = { msgId: lastId }
+    const eventData = { id }
     await publishEvent({ channel: `room-${slug}`, eventData, event: 'delete' })
-
     console.info(`Message deleted in #${slug}`, eventData)
   } catch (dbError) {
     console.error(dbError)

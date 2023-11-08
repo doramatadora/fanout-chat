@@ -38,7 +38,6 @@ document.addEventListener('keydown', e => {
   if (!/^[a-zA-Z0-9\s\p{P}]$/.test(e.key)) return
   msgInput.focus()
   e.stopImmediatePropagation()
-  console.log('fire')
 })
 
 msgInput.addEventListener('input', () => {
@@ -75,9 +74,15 @@ try {
   const roomEvtSrc = new EventSource(ROOM_MESSAGES_URL)
   roomEvtSrc.addEventListener('update', e => {
     const message = JSON.parse(e.data)
-    console.log({ message })
+    console.log('Received new message', { message })
     const msg = createChatDiv(message)
     chatArea.insertBefore(msg, scrollToBottomBtn)
+    scrollToBottom()
+  })
+  roomEvtSrc.addEventListener('delete', e => {
+    const message = JSON.parse(e.data)
+    console.log('Received delete instruction', { message })
+    document.querySelector(`.chat[data-id="${message.id}"]`)?.remove()
     scrollToBottom()
   })
 } catch (e) {
