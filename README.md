@@ -4,7 +4,7 @@ This is a basic web chat application hosted on [Glitch](https://glitch.com). It 
 
 ✨ It is intended as a companion to [doramatadora/passwordless-demo](https://www.github.com/doramatadora/passwordless-demo), a proof-of-concept implementation of passwordless authentication with [passkeys](https://passkeys.dev/), at the network's edge, using [Fastly Compute](https://www.fastly.com/products/edge-compute). ✨
 
-A live instance of the passwordless chat demo can be found at [?.edgecompute.app](https://?.edgecompute.app/).
+A live instance of the passwordless chat demo can be found at [devchat.edgecompute.app](https://devchat.edgecompute.app/).
 
 ## Components
 
