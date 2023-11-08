@@ -18,7 +18,12 @@ const filter = new Filter()
 
 const cleanMsg = (str, maxLength = 500) => {
   const truncated = str.length > maxLength ? str.substring(0, maxLength) : str
-  const noSwears = filter.clean(truncated)
+  let noSwears
+  try {
+    noSwears = filter.clean(truncated)
+  } catch (_) {
+    noSwears = truncated
+  }
   const mdToHtml = marked.parseInline(noSwears)
   const safeHtml = DOMPurify.sanitize(mdToHtml)
   return safeHtml
