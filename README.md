@@ -1,8 +1,10 @@
-# Real-time chat powered by Fastly Fanout
+# Real-time chat powered by Fastly Fanout. No passwords!
 
 This is a basic web chat application hosted on [Glitch](https://glitch.com). It relies on [`EventSource`](https://developer.mozilla.org/en-US/docs/Web/API/EventSource) and [Fastly Fanout](https://docs.fastly.com/products/fanout) for real-time functionality.
 
 ✨ It is intended as a companion to [doramatadora/passwordless-demo](https://www.github.com/doramatadora/passwordless-demo), a proof-of-concept implementation of passwordless authentication with [passkeys](https://passkeys.dev/), at the network's edge, using [Fastly Compute](https://www.fastly.com/products/edge-compute). ✨
+
+> 💡 Find more resources for passwordless and Compute: [zen-edge-auth.glitch.me](https://zen-edge-auth.glitch.me)
 
 A live instance of the passwordless chat demo can be found at [devchat.edgecompute.app](https://devchat.edgecompute.app/).
 
