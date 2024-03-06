@@ -1,5 +1,5 @@
 const SAMPLE_DATA = `
-INSERT INTO messages (user, message, room_id) VALUES ('Dora Militaru', 'Hello everyone!', 1);
+INSERT INTO messages (user, message, room_id) VALUES ('Dora Militaru', 'Hello everyone!', 2);
 `
 
 export const INIT_DB = `
@@ -20,5 +20,6 @@ CREATE TABLE rooms (
 CREATE INDEX messages_date_sent_idx ON messages (date_sent);
 
 INSERT INTO rooms (name, slug) VALUES ('DevOps Barcelona', 'devops-bcn');
+INSERT INTO rooms (name, slug) VALUES ('DevOps Exchange London', 'devops-exchange-ldn');
 ` + SAMPLE_DATA
 

@@ -120,8 +120,9 @@ function updateTimestamps () {
 async function sendMessage () {
   const message = msgInput.value?.trim()
   if (!message.length) return
+  let sendRes = {}
   try {
-    const sendRes = await fetch(ROOM_MESSAGES_URL, {
+    sendRes = await fetch(ROOM_MESSAGES_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message })
@@ -133,7 +134,7 @@ async function sendMessage () {
     if (!sendRes.ok) throw new Error(`HTTP ${sendRes.status}.`)
     msgInput.value = ''
   } catch (e) {
-    console.error(`Uh-oh! Couldn't send message (HTTP ${sentRes.status}).`)
+    console.error(`Uh-oh! Couldn't send message (HTTP ${sendRes.status}).`)
   }
   sendBtn.blur()
   msgInput.focus()
